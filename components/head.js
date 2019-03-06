@@ -1,15 +1,17 @@
-import React from 'react'
-import NextHead from 'next/head'
-import { string } from 'prop-types'
+import React from "react";
+// import NextHead from "next/head";
+import Head from "next/head";
+// import { Head } from 'next/document';
+import { string } from "prop-types";
 
-const defaultDescription = ''
-const defaultOGURL = ''
-const defaultOGImage = ''
+const defaultDescription = "";
+const defaultOGURL = "";
+const defaultOGImage = "";
 
-const Head = props => (
-  <NextHead>
+const Header = props => (
+  <Head>
     <meta charSet="UTF-8" />
-    <title>{props.title || ''}</title>
+    <title>{props.title || ""}</title>
     <meta
       name="description"
       content={props.description || defaultDescription}
@@ -19,8 +21,10 @@ const Head = props => (
     <link rel="apple-touch-icon" href="/static/touch-icon.png" />
     <link rel="mask-icon" href="/static/favicon-mask.svg" color="#49B882" />
     <link rel="icon" href="/static/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="/static/css/nprogress.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/main.css" />
     <meta property="og:url" content={props.url || defaultOGURL} />
-    <meta property="og:title" content={props.title || ''} />
+    <meta property="og:title" content={props.title || ""} />
     <meta
       property="og:description"
       content={props.description || defaultDescription}
@@ -31,14 +35,14 @@ const Head = props => (
     <meta property="og:image" content={props.ogImage || defaultOGImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-  </NextHead>
-)
+  </Head>
+);
 
 Head.propTypes = {
   title: string,
   description: string,
   url: string,
   ogImage: string
-}
+};
 
-export default Head
+export default Header;
